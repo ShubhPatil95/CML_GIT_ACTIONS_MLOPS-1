@@ -12,6 +12,10 @@ jobs:
         run: |
           pip install -r requirments.txt
           python train.py
+          cat "Below is the Accuracy" > report.md
           cat Outputs.txt >> report.md
+          cat "Confusion Matrix" >> report.md
+          echo "Confusion Matrix" >> report.md
+          cml-publish confusion_matrix.png --md >> report.md         
           
           cml send-comment report.md
