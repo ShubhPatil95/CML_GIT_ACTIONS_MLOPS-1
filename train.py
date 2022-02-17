@@ -23,3 +23,7 @@ import seaborn as sns
 sns_plot=sns.heatmap(cf_matrix, annot=True)
 fig = sns_plot.get_figure()
 fig.savefig("confusion_matrix.png")
+
+score=model.score(x, y)
+with open("Outputs.txt","w") as file:
+    file.write(f"Accuracy is {score}")
